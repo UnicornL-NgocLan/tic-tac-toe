@@ -70,6 +70,8 @@ const Board = () => {
                     handleMove={handleMove}
                     isMyTurn={isMyTurn}
                     iamCheck={iamCheck}
+                    isCheckWin={isCheckWin}
+                    isDraw={isDraw}
                     />)
                 }
             </div>

@@ -66,7 +66,7 @@ const computerSecondMove = (boxes,typeOfCom,currentAmountOfUserMoves)=>{
     }else{
         // Com go second (Com 1 move Player 2 moves)
         const warningIndex = checkForThreatPotential(boxes,typeOfCom);
-        if(warningIndex != -1){
+        if(warningIndex !== -1){
             let newBoxes = [...boxes].map((i,index) => index === warningIndex ? typeOfCom : i);
             return newBoxes;
         }else{
@@ -98,7 +98,7 @@ const computerSecondMove = (boxes,typeOfCom,currentAmountOfUserMoves)=>{
                 return newBoxes;
                 // Player check 1 corner 
             }else if(caseWhenTwoCrossLineOccupied.some(i => checkedArr.some(item => i.includes(item)))){
-                const lineForCheckBox = caseWhenTwoCrossLineOccupied.find(i => checkedArr.some(item => i.includes(item)));
+                const lineForCheckBox = caseWhenTwoCrossLineOccupied.find(i => !checkedArr.some(item => i.includes(item)));
                 const notChosenIndex = lineForCheckBox.find(i => !checkedArr.includes(i));
                 let newBoxes = [...boxes].map((i,index) => index === notChosenIndex -1 ? typeOfCom : i);
                 return newBoxes;   
@@ -126,7 +126,7 @@ const computerSecondMove = (boxes,typeOfCom,currentAmountOfUserMoves)=>{
 
 const computerTheFollowingMove = (boxes,typeOfCom,currentAmountOfUserMoves)=>{
     const warningIndex = checkForThreatPotential(boxes,typeOfCom);
-    if(warningIndex != -1){
+    if(warningIndex !== -1){
         let newBoxes = [...boxes].map((i,index) => index === warningIndex ? typeOfCom : i);
         return newBoxes;
     }else{

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Box = ({order,type,iamCheck,isMyTurn,handleMove}) => {
+const Box = ({order,type,iamCheck,isMyTurn,handleMove,isCheckWin,isDraw}) => {
     const handleClickBox = ()=>{
-        if(type !== "") return;
+        if(type !== "" || !isMyTurn || isDraw || isCheckWin !== 0) return;
         handleMove({order,type:iamCheck ? 'check' : 'circle'})
     }
 
